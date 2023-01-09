@@ -1,0 +1,40 @@
+#include<stdio.h>
+
+int is_even (int num);  // Declare the function
+
+ 
+void main() {
+	int num = 9467;
+	int missing = is_even(num);
+	printf("%d\n", missing);
+}
+
+
+int is_even(int num) {
+	int n1 = num % 10;
+	int answer = 0;
+	
+	if (num < 10) {
+		if (num % 2 == 0) {
+			answer = 1;
+			return answer;
+		}
+		else
+			answer = -1;
+			return answer;
+	}
+	if (num == 0) {
+		answer = 1;
+	}
+	else
+		if (num % 2 == 0) {
+			answer = 1;
+		}
+		else
+			answer = -1;
+	
+
+	answer= answer + is_even(num/10);
+
+	return answer;
+}
