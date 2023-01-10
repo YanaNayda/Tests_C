@@ -1,0 +1,29 @@
+#include<stdio.h>
+double is_geometric_sequence(double* arr , int n);  // Declare the function
+
+ 
+void main() {
+	int n = 5;
+	int a[] = { 2.5, 5, 10, 20, 40 };
+	int missing = is_geometric_sequence(a,n);
+	printf("%d\n", missing);
+}
+
+double is_geometric_sequence(double* arr, int num) {
+
+	double q;
+	if (num == 2) {
+		
+		
+		return  arr[1] / arr[0];
+	}
+
+	q = arr [num-1] / arr [num - 2];
+
+	if (is_geometric_sequence(arr, num - 1) == q) {
+		return q;
+	}
+	else
+		return 0;
+
+}
