@@ -1,0 +1,25 @@
+#include<stdio.h>
+ int isPalindromRec(int* arr, int n);  // Declare the function
+
+ 
+void main() {
+	int n = 5;
+	int a[] = { 3, 3, 1, 5, 3 };
+	int missing = isPalindromRec(a,n);
+	printf("%d\n", missing);
+}
+
+int isPalindromRec(int* arr, int n){
+	
+	if (n <= 1) {
+		return 1;
+	}
+
+
+	if (arr[0] == arr[n-1])  
+	{
+		return isPalindromRec( arr +1, n - 2);
+	}
+	return 0;
+
+}
