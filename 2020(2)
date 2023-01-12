@@ -1,0 +1,25 @@
+
+/////////////////////////////////////////////Ex2
+#include<stdio.h>
+void newNum(int n);  // Declare the function
+
+ 
+void main() {
+	int n = 9764;
+	newNum(n);
+}
+
+void newNum(int n){
+	int r = n % 10;
+	
+	if (n < 10) {
+		int t = 9 - r;
+		printf("%d", t);
+		return n;
+	}
+    
+	newNum(n / 10);
+	int t = 9 - r;
+	printf("%d", t);
+	
+}
