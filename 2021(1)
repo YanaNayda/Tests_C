@@ -1,0 +1,38 @@
+////////////////////////////////////EX1
+#include<stdio.h>
+int  sum_increasing_minus_decreasing(int* a, int n);
+ 
+int main() {
+	 int n = 8;
+	 int a[]={ 1,3,4,6,8,4,2,1 };
+	 int t = sum_increasing_minus_decreasing(a, n);
+	 printf("%d", t);
+}
+
+int sum_increasing_minus_decreasing(int* a, int n){
+	n = n - 1;
+	int result=0;
+	int increasing=0;
+	int decreasing=0;
+
+	if (n == 0) {
+		return increasing =+ a[0];
+	}
+	if ((a[n] > a[n - 1]) && (a[n] > a[n+1])) {
+		decreasing = +a[n];
+	}
+	else
+		if (a[n] > a[n - 1]) {
+			increasing = +a[n];
+		}
+		else
+			if (a[n] < a[n - 1]) {
+				decreasing = +a[n];
+			}
+
+	result += increasing - decreasing;
+	result = result + sum_increasing_minus_decreasing(a--, n--);
+
+	return result;
+}
+////////////////////////////////////////////////////////////////EX2
