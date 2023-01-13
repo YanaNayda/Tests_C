@@ -22,3 +22,35 @@ int NewNumber(num) {
 
 }
 	
+////////////////////////EX3
+#include<stdio.h>
+#include<string.h>
+int checkletter(char, char);
+
+int main() {
+	char s1[30] = "bdacaabaabaab";
+	char s2[30] = "abalc";
+	int t = checkletter(s1,  s2);
+	printf("%d", t);
+}
+
+int checkletter(char* s1, char* s2) {
+	int i=0,k=0,counter=0;
+	while (s2[i] != '\0') {
+		for (k = 0; k < strlen(s1-1); k++) {
+			if (s2[i] == s1[k]) {
+				counter = counter +1;
+				break;
+			}
+		 }
+		if (counter < i + 1) {
+			return 0; 
+		}
+		i++;
+	}
+	return 1;
+	
+}
+
+
+//////////////////////////////////////
