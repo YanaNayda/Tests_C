@@ -23,3 +23,34 @@ int is_even(int num) {
 	else
 		return 0;
 }
+
+////////////////////////////////////////////////EX3
+
+#include<stdio.h>
+#include<string.h>
+//void newNum(int n); // Declare the function
+int withoutSpace(char );
+
+int main() {
+	char* s1;
+	char s[100] = "bssdffFdcrrrtttii        #***";
+	s1 = withoutSpace(s);
+	printf("The new string is: %s \n", s1);
+	free(s1);
+
+}
+
+int withoutSpace(char* s){
+	char* arr, i, j=0;
+	char* newarr;
+	arr = (char*)calloc(strlen(s) + 1, sizeof(char));
+	for (i = 0; s[i]!='\0'; i++) {
+		if (s[i]!=arr[j-1]) {
+			arr[j] = s[i];
+			j++;
+		}
+	}
+	newarr = (char*)realloc(arr, (j + 1) * (sizeof(char)));
+	return newarr;
+	
+}
