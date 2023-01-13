@@ -1,0 +1,74 @@
+# preparation
+#include<stdio.h>
+int findNum(int num);  // Declare the function
+
+
+void main() {
+
+	int num = 124; 
+	int missing = findNum(num); 
+	printf("%d\n", missing); 
+}
+
+
+int findNum(int num) {
+
+	if (num < 100) {
+		return 1;
+	}
+	int a = num / 100 % 10;
+	int b = num / 10 % 10;
+	int c = num % 10;
+
+	if (!((a < b && b > c) || (a > b && b < c))) {
+		return 0;
+	}
+	return findNum(num / 10);
+}
+
+
+
+
+////////////////////////////////////////////////////EX4
+#include<stdio.h>
+#include<string.h>
+//void newNum(int n); // Declare the function
+int withoutSpace(char);
+
+int main() {
+	int number;
+	char s[] = "-2353";
+	number = withoutSpace(s);
+	printf("The new string is: %d \n", number);
+}
+
+int withoutSpace(char* s){
+	int i, j=1;
+	int newNum=0;
+	int* arr,n;
+	arr = (int*) calloc (strlen(s), sizeof(int));
+
+	for (i = 0; s[i]!='\0'; i++) {
+		if (s[0] == '-') {
+			arr[0] = -1;
+			arr[j] = s[j] - '0';
+			j++;
+			n = 1;
+		}
+		else {
+			arr[0] = 1;
+			arr[j] = s[i] - '0';
+			j++;
+			n = 10;
+		}
+	}
+	for (i = 0; i< strlen(s)-2 ; i++) {
+		n *= 10;
+	}
+	for (i = 1; i< strlen(s) ; i++) {
+		newNum += arr[i] * n;
+		n = n / 10;
+	}
+	return (newNum * arr[0]);
+
+}
