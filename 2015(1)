@@ -1,0 +1,24 @@
+/////////////////////////////////////Ex1
+#include<stdio.h>
+//void newNum(int n); // Declare the function
+int NewNumber(num);
+
+int main() {
+	int num = 879026;
+
+	//int arr1[] = { -5,-2,12,25,34,40 };
+	int t = NewNumber(num);
+	printf("%d", t);
+}
+
+int NewNumber(num) {
+	int newnum = num;
+	if (num < 100) {
+		num = 10 * (num % 10) + num / 10;
+		return num;
+	}
+
+	return 100* NewNumber(num / 100) + NewNumber (num%100);
+
+}
+	
