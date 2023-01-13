@@ -1,0 +1,33 @@
+/////////////////////////////////////////////////////////EX2
+#include<stdio.h>
+//void newNum(int n); // Declare the function
+int MaxRelative(int*, int );
+
+int main() {
+	int num1 = 15;
+	int arr1[] = { 24, 21 ,22, 4 ,6, 7, 8, 6, 5, 11, 10, 21, 9, 4 ,13 };
+	int t = MaxRelative(arr1, num1);
+	printf("%d", t);
+}
+
+int MaxRelative(int* arr, int num) {
+	
+	int counter = 0;
+	if (num == 0 ) {
+		if (arr[0] < arr[1]) {
+			return counter =+ 1;
+		}
+		else
+			return  counter;
+	
+	}
+	else
+		if (arr[0] < arr[1]) {
+			counter =+ 1;
+		}
+		else
+			return counter=1;
+
+		counter = counter + MaxRelative(arr + 1, num-1 );
+	return counter; 
+}
