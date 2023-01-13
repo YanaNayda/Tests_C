@@ -1,0 +1,34 @@
+///////////////////////////////////////////Ex1
+#include<stdio.h>
+//void newNum(int n); // Declare the function
+int NewNumber(num);
+
+int main() {
+	int num = 1521376;
+	int t = NewNumber(num);
+	printf("%d", t);
+}
+
+int NewNumber(num) {
+	int cheсknum =num % 10;
+	int sum;
+
+
+	if (num < 10) {
+		if (num % 2 == 0) {
+			return num;
+		}
+		return -num;
+	}
+	if (cheсknum % 2 == 0) {
+		 sum=cheсknum;
+	}
+	else {
+		sum = -cheсknum;
+	}
+
+
+	sum = sum + NewNumber(num / 10);
+	return sum;
+}
+	
