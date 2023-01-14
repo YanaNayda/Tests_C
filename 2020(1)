@@ -1,0 +1,40 @@
+/////////////////////////////////EX2
+#include<stdio.h>
+#include<string.h>
+//void newNum(int n); // Declare the function
+int numDuplicate(char,int ,int );
+
+int main() {
+	int number=26;
+	int finalNum;
+	int i = 0;
+	int gemetria[26];
+	for (i = 1; i <= 26; i++) {
+		if (i <= 10) {
+			gemetria[i-1] = i;
+		}
+		if (i > 10 && i < 20) {
+			gemetria[i - 1] = 10 * (i / 10 + i % 10);
+		}
+		if (i >= 20) {
+			gemetria[i - 1] = 100 * (i / 10 + i % 10);
+		}
+	}
+
+	char str1[] = "exam";
+	finalNum = numDuplicate ( str1,gemetria,number);
+	printf("The number is: %d \n",finalNum);
+}
+
+int numDuplicate(char* str, int *gemetria, int size){
+	int sum = 0;
+	if (*str == '\0') {
+		return 0; 
+	}
+	int letter = *str - 'a';
+	sum += gemetria[letter];
+	str++;
+	sum = sum + (numDuplicate( str, gemetria, size));
+	return sum;
+}
+	
