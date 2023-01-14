@@ -27,3 +27,40 @@ double is_geometric_sequence(double* arr, int num) {
 		return 0;
 
 }
+/////////////////////////////////////////////////////////////EX4
+#include<stdio.h>
+#include<string.h>
+int numDuplicate(char,char);
+
+int main() {
+	int number;
+	int n = 13;
+	char str1[] = "Three     interesting   b o o ks";
+	char str2[] = "Three interesting books";
+	number = numDuplicate ( str1, str2 );
+	printf("The number is: %d \n", number);
+}
+
+int numDuplicate(char* s1, char *s2){
+	while(*s1 != '\0' || *s2 != '\0') {
+		if (*s1 == *s2) {
+			s1++;
+			s2++;
+		}
+		else
+		{
+			if (*s1 != ' ' && s2 != ' ') {
+				return 0;
+			}
+			if (*s1 == ' ') {
+				*s1++;
+			}
+			if (*s2 == ' ') {
+				*s2++;
+			}
+		}
+
+	}
+	return 1;
+}
+	
