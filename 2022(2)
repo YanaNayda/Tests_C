@@ -26,3 +26,42 @@ int MaxRelative(int* c, int k, int i, int j) {
 	 return MaxRelative(c, k, i+1, j);
 
 }
+/////////////////////////////////////////////////////////////EX3
+#include<stdio.h>
+#include<string.h>
+int  removeDuplicates(char);
+
+
+int main() {
+	int number; 
+	char str[] = "abcd";
+	 number = removeDuplicates(str);
+	 printf("%d", number);
+}
+
+int  removeDuplicates(char* str) { 
+	int counter[26] = {0};
+	int len = strlen(str);
+	int i = 0; 
+	int count=len;
+	for (i = 0; i<len; i++) {
+		
+		if (counter[(str[i]) - 'a'] == 0) {
+			counter[(str[i]) - 'a']++;
+			
+			
+		}
+		else
+			return 0;
+	}
+	for (i = 0; i < 26, count >0 ; i++) {
+		if (counter[i] == 1) {
+			count--;
+			if (counter[i] != counter[i + 1] && count!=0) {
+				return 0;
+			}
+		}
+
+	}
+	return 1; 
+}
