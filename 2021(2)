@@ -1,4 +1,53 @@
+///////////////////////////////////////////////////////////////////////////////////////////////////////////EX2(don't work)
+#include<stdio.h>
+#include<string.h>
+int CheckLang(char);
+int CheckWord(char, int);
+
+
+int main() {
+	char str[] = "pmtwxn9mtn pbr-%$jpcuwfRjvcufgxn$pbL";
+	int finalNum = CheckLang (str);
+	printf("The number is: %d \n",finalNum);
+}
+
+int CheckLang(char* sentance) {
+	int counter=0;
+	int i; 
+	int len = strlen(sentance);
+
+	for (i = 0; i< len; i++) {
+		if (sentance[i]>= 'a' && sentance[i] <= 'z') {
+			counter++;
+		
+		}
+		else
+			if (CheckWord (sentance, counter)) {
+				counter = 0;
+			}
+			else
+				return 0; 
+	}
+	return 1;
+}
+int CheckWord(char* sentance, int counter) {
+	int i = 0;
+	int letters[26] = { 0 };
+	while (i < counter) {
+		int index = (sentance[i])-'a';
+
+		letters[index]++;
+		i++;
+	}
+	for (i = 0; i < 26; i++) {
+		if (letters[i] > 1) {
+			return 0; 
+		}
+	}
+	return 1;
+}
 /////////////////////////////////////////////////////////////////////////////////////////////////////////EX2
+
 #include<stdio.h>
 //void newNum(int n); // Declare the function
 int MaxRelative(int*, int );
