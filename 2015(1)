@@ -53,4 +53,35 @@ int checkletter(char* s1, char* s2) {
 }
 
 
-//////////////////////////////////////
+//////////////////////////////////////EX4
+#include<stdio.h>
+#include<string.h>
+#define N 4
+int minmatrice(int[][N],int,int);
+
+
+int main() {
+	int matr[N][N] = { {6,12,3},{7,4,20},{8,90,9},{5,8,3}};
+	int mnumber = minmatrice(matr,N,N);
+	printf("%d", mnumber);
+ 
+}
+
+int minmatrice(int matrice[][N], int row, int col) {
+	int min ; 
+	int	temp;
+	for (row = 1; row < N; row++) {
+		for (col = 0; col < row; col++) {
+			if (row == 1) {
+				min = matrice[row][col];
+				temp = min;
+			}
+			else
+				temp = matrice[row][col];
+			if (min > temp) {
+				min = temp; 
+			}
+		}
+	}
+	return min;
+}
