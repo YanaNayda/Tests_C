@@ -80,3 +80,51 @@ int numDuplicate(char* s, char *s1, int *n){
 	
 
 
+//////////////////////////////////////////////////////////Ex5
+#include<stdio.h>
+#include<string.h>
+
+#define R 4
+#define C 3
+int copySumMatrix(int[][C]);
+
+
+int main() {
+	int key = 3;
+	int matriceA[R][C] = {{1,12,7},{23,13,25},{36,26,27},{38,39,48}};
+	
+	int answer = copySumMatrix(matriceA);
+	printf("%d", answer);
+}
+
+int copySumMatrix(int matriceA[][C]) {
+	int row;
+	int col ; 
+	int max=0,maxrow=0;
+	int temp = 0;
+
+	for (col = 0; col < C; col++) {
+		temp = matriceA[0][col];
+		if (temp > max) {
+			max = temp; 
+		}
+	}
+
+	for (row = 1; row < R; row++) {
+		for (col = 0; col < C; col++) {
+			if (max > matriceA[row][col]) {
+				return -1;
+			}
+
+			temp = matriceA[row][col];
+			if (temp > maxrow) {
+				maxrow = temp;
+			}
+		}
+		max = maxrow;
+		maxrow = 0;
+
+	}
+	return 1;
+}
+ 
