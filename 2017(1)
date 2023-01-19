@@ -59,3 +59,46 @@ int withoutSpace(char* s){
 	return newarr;
 	
 }
+/////////////////////////////////////////////////////////////////////Ex5
+#include<stdio.h>
+#include<string.h>
+#define N 4
+#define R 3
+#define C 5
+int copySumMatrix (int[][C], int[][C]);
+
+
+int main() {
+	int key = 3;
+	int matriceA[R][C] = { {1 ,1, 2 ,- 5, - 2},{2, - 2, - 1, 0, 4},{4, 4, 2, 8, 1}};
+	int matriceB[R][C] = {{0},{0},{0}};
+	copySumMatrix(matriceA,matriceB);
+	//printf("%d", mnumber);
+}
+
+int copySumMatrix(int matriceA[][C],int matriceB[][C]) {
+	int i,j;
+	int sum;
+	int sumA;
+	for (i = 0; i < R; i++) {
+
+		sum = 0;
+		sumA = 0;
+
+		for (j = 0; j < C; j++) {
+			if (i == 0) {
+				sum += matriceA[i][j];
+				matriceB[i][j] = sum;
+			}
+			else {
+				sumA += matriceA[i][j];
+				if (j != 0) {
+					matriceB[i][j] = sumA+ matriceB[i-1][j];
+				}
+				else
+				    matriceB[i][j] = matriceB[i - 1][j] + matriceA[i][j];
+			}
+		}
+	}
+	return 1;
+}
