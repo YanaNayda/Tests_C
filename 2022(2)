@@ -1,3 +1,73 @@
+//////////////////////////////////////////////////Ex1(1)
+#include<stdio.h>
+#include<string.h>
+
+#define N 4
+void mergeSort(int* a, int first, int last);
+int sumLac(int [][N]);
+
+
+int main() {
+	int matrice[N][N] = { {10,2,7,1},{2,7,-1,6},{1,-2,-6,-5},{-2,4,7,9} };
+	int answer = sumLac(matrice);
+	printf("%d", answer);
+}
+
+int sumLac(int mat[][N]) {
+	int row, col; 
+	int sum = 0;
+	int l; 
+	for (row = 0; row < N; row++) {
+		sum = 0;
+		for (col = 0; col < N; col++) {
+			if (row != col) {
+				sum += mat[row][col];
+			}
+			else
+				l = mat[row][col];
+		}
+		if (sum != l) {
+			return 0; 
+		}
+	}
+	return 1;
+}
+///////////////////////////////////////////////////Ex1(2)
+#include<stdio.h>
+#include<string.h>
+
+#define N 4
+void mergeSort(int* a, int first, int last);
+int sumLac(int [][N]);
+
+
+int main() {
+	int matrice[N][N] = { {10,2,7,-1},{2,7,-20,4},{9,-2,-6,6},{-1,7,7,9} };
+	int answer = sumLac(matrice);
+	printf("%d", answer);
+}
+
+int sumLac(int mat[][N]) {
+	int row, col; 
+	int sum = 0;
+	int l; 
+	for (row = 0; row < N; row++) {
+		sum = 0;
+		for (col = 0; col < N; col++) {
+			if (row != col) {
+				sum += mat[col][row];
+			}
+			else
+				l = mat[col][row];
+		}
+		if (sum != l) {
+			return 0; 
+		}
+	}
+	return 1;
+}
+
+
 //////////////////////////////////////////////////EX2
 #include<stdio.h>
 //void newNum(int n); // Declare the function
