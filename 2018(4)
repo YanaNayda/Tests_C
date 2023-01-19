@@ -64,3 +64,37 @@ int numDuplicate(char* s1, char *s2){
 	return 1;
 }
 	
+////////////////////////////////////////////////////Ex5
+#include<stdio.h>
+#include<string.h>
+
+#define R 4
+#define C 3
+#define N 4
+void copySumMatrix(int[][N]);
+
+
+int main() {
+	int key = 3;
+	int matriceA[N][N] = {{-7,12,1,6},{25,13,23,18},{27,26,36,91},{48,39,38,30}};
+	
+	 copySumMatrix(matriceA);
+	 for (int i = 0; i < N; i++) {
+		 printf("   ");
+		 for (int j = 0; j < N; j++) {
+			 printf("%d ", matriceA[i][j]);
+		 }
+	 }
+	//printf("%d", answer);
+}
+
+void copySumMatrix(int matriceA[][N]) {
+	int i,temp;
+	for (i = 0; i < N; i++) {
+		temp=matriceA[i][i];
+		matriceA[i][i] = matriceA[i][N-1-i];
+		matriceA[i][N - 1 - i] = temp;
+	}
+	
+}
+ 
