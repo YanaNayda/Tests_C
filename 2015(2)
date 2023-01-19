@@ -31,4 +31,31 @@ int NewNumber(num) {
 	sum = sum + NewNumber(num / 10);
 	return sum;
 }
+
+///////////////////////////////////////////////////////Ex4
+#include<stdio.h>
+#include<string.h>
+#define N 3
+int minmatrice(int[][N],int,int);
+
+
+int main() {
+	int matr[N][N] = { {6,12,3},{0,4,20},{8,90,9}};
+	int mnumber =minmatrice(matr,N,N);
+	printf("%d", mnumber);
+}
+
+int minmatrice(int matrice[][N], int row, int col) {
 	
+	int	temp;
+	for (row = 0; row < N; row++) {
+		for (col = N-1; col >= 1; col--) {
+			temp = matrice[row][col];
+			//matrice[col]= matrice[col - 1];
+			matrice[row][col] = matrice[row][col - 1];
+			matrice[row][col - 1] = temp;
+		}
+	}
+	return 1;
+}
+ 
