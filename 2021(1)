@@ -40,6 +40,72 @@ int sum_increasing_minus_decreasing(int* a, int n){
 
 
 
+///////////////////////////////////////////////////////////////EX3 ?????????
+#include<stdio.h>
+#include<string.h>
+
+#define R 4
+#define C 3
+#define N 4
+int StrFib(char* str);
+int StringToNum(char* str, int index, int n);
+int numLength(int num);
+
+
+int main() {
+	int key = 3;
+	int matriceA[N][N] = {{-7,12,1,6},{25,13,23,18},{27,26,36,91},{48,39,38,30}};
+	char str[] = "19101929";
+	int answer = StrFib(str);
+	printf("%d", answer);
+	/* copySumMatrix(matriceA);
+	 for (int i = 0; i < N; i++) {
+		 printf("   ");
+		 for (int j = 0; j < N; j++) {
+			 printf("%d ", matriceA[i][j]);
+		 }
+	 }*/
+	//printf("%d", answer);
+}
+
+int numLength(int num)
+{
+	int counter = 0;
+	while (num > 0)
+	{
+		counter++;
+		num /= 10;
+	}
+	return counter;
+}
+
+int StrFib(char* str) {
+	int i, fib1, fib2, fibN, len,numLen, fibpotential;
+	fib1 = str[0]-'0';
+	fib2 = str[1]-'0';
+	len = strlen(str);
+	for (i = 2; i < len;) {
+		fibN = fib1 + fib2;
+		numLen  = numLength(fibN);
+		fibpotential = StringToNum(str, i, numLen);
+		if (fibN != fibpotential) {
+			return 0; 
+		}
+		fib1 = fib2;
+		fib2 = fibN;
+	}
+	return 1; 
+	
+}
+int StringToNum(char* str, int index, int n) {
+	int i=index, num=0; 
+	for (i = index; i < index + n; i++) {
+		num = (num * 10) + (str[i] - '0');
+	}
+	return num;
+}
+ 
+
 
 
 ///////////////////////////////////////////////////////////////EX4
