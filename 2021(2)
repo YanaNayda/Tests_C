@@ -79,3 +79,39 @@ int MaxRelative(int* arr1, int num1 ) {
 }
 ////////////////////////////////////////////////////////////////Ex3(????)
 
+/////////////////////////////////////////////////////////////Ex4(???? Maybe don't work )
+#include<stdio.h>
+#include<string.h>
+
+#define N 4
+void mergeSort(int* a, int first, int last);
+void ex4(int [][N]);
+
+
+int main() {
+	int matrice[N][N] = { {12,19,14,4},{5,17,15,13},{6,16,11,18},{99,2,3,4} };
+    //find_oil(matrice);
+	//printf("%d",answer);
+	int mat[N][N] =
+		{
+			{2,14,16,18},
+			{2,-7,17,7},
+			{-1,-4,-7,-9},
+			{0,15,3,20}};
+	 ex4(mat);
+}
+
+void ex4(int mat[][N]) {
+	
+		mergeSort(mat, 0, N*N - 1);
+	}
+
+void mergeSort(int* a, int first, int last) {
+		int middle;
+		if (first < last) {
+			middle = (first + last) / 2;
+			mergeSort(a, first, middle);
+			mergeSort(a, middle + 1, last);
+			merge(a, first, middle, last);
+		}
+}
