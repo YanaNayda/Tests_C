@@ -36,3 +36,51 @@ int sum_increasing_minus_decreasing(int* a, int n){
 	return result;
 }
 ////////////////////////////////////////////////////////////////EX2
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////EX4
+#include<stdio.h>
+#include<string.h>
+
+#define N 100
+void find_oil( int[][N]);
+
+
+int main() {
+	int matrice[N][N] = {{12,19,14},{17,15,13},{16,11,18}};
+    find_oil(matrice);
+	//printf("%d",answer);
+	
+
+}
+
+void find_oil( int matrice[][N]) {
+	int row = 0; 
+	int col = 0;
+	int sum = 0; 
+	int temp[N][N] = { 0 };
+	for (row = 1; row < N-1; row++) {
+		for (col = 1; col < N-1; col++) {
+			if (matrice[row][col] > 60) {
+				sum = (matrice[row - 1][col] + matrice[row +1][col] + matrice[row ][col-1] + matrice[row ][col+1])/4;
+				if (sum + 10 < matrice[row][col]) {
+					temp[row][col] =100;
+				}
+			}
+		}
+	}
+	for (row = 1; row < N - 1; row++) {
+		for (col = 1; col < N - 1; col++) {
+			if (temp[row][col] == 100) {
+				matrice[row][col] == 100;
+			}
+		}
+	}
+
+}
+
+ 
