@@ -23,3 +23,58 @@ int isPalindromRec(int* arr, int n){
 	return 0;
 
 }
+///////////////////////////////////////////////////////////////EX6
+
+#include<stdio.h>
+#include<string.h>
+
+#define N 3
+int CheckMatrix( int[][N]);
+
+
+int main() {
+	int matrice[N][N] = {{12,19,14},{17,15,13},{16,11,18}};
+	int answer = CheckMatrix(matrice);
+	printf("%d",answer);
+	
+
+}
+
+int CheckMatrix( int matrice[][N]) {
+	int row = 0; 
+	int col = 0;
+
+	int SumRow=0;
+	int SumCol=0;
+
+	int sumlac1=0;
+	int sumlac2=0; 
+
+	for (col = 0; col < N; col++) {
+		sumlac2 += matrice[N - 1 - col][N - 1 - col];
+		sumlac1 += matrice[col][col];
+	}
+	if (sumlac1!=sumlac2) {
+		return 0; 
+	}
+	for (row = 0; row < N; row++) {
+		SumCol = 0;
+		for (col = 0; col < N; col++) {
+			SumCol += matrice[row][col];
+		}
+		if (SumCol != sumlac1) {
+			return 0; 
+		}
+	}
+	for (row = 0; row < N; row++) {
+		SumRow = 0;
+		for (col = 0; col < N; col++) {
+			SumRow += matrice[col][row];
+		}
+		if (SumRow != sumlac1) {
+			return 0;
+		}
+	}
+	return 1; 
+
+}
