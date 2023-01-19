@@ -24,3 +24,31 @@ int findNum(int num) {
 
 	return findNum(num/10);
 }
+/////////////////////////////////////////////////////////////////////Ex2
+
+#include<stdio.h>
+#include<string.h>
+#define N 4
+int  checkKey(int[][N],int,int);
+
+
+int main() {
+	int key = 3;
+	int matr[N][N] = { {6 ,12, 8, 3},{7, 4, 45, 20},{8, 90, 3, 9},{14, 67, 2, 1} };
+	int mnumber = checkKey(matr,N,N,key);
+	printf("%d", mnumber);
+}
+
+int checkKey(int matrice[][N], int row, int col, int key) {
+	if (matrice[row-1][col-1] > key) {
+		return -1;
+	}
+	if (row == 0 && col == 0 && matrice[row-1][col-1] != key) {
+		return -1; 
+	}
+	if (matrice[row-1][col-1] == key) {
+		return row-1;
+	}
+	return checkKey(matrice,row-1,col-1,key);
+}
+ 
