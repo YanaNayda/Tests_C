@@ -158,3 +158,34 @@ int minmatrice(int matrice[][N], int row, int col) {
 	return 1;
 }
  
+////////////////////////////////////////////////////////////EX5(?????)
+
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#include<assert.h>
+
+#define N 4
+int MinSum(double x, int n);
+ 
+int main() {
+	int x=3; 
+	int n=3;
+	int answer = MinSum(x,n);
+	printf("%d", answer);
+}
+
+int MinSum(double x, int n ) {
+	
+		double item = x, sum = x / 3;
+		int i;
+		if (x == 0) return 0;
+		for (i = 1; i <= n; i++)
+		{
+			item *= x * x;
+			sum += item / ((2 * i + 1) * (2 * i + 3));
+		}
+		return sum;
+
+
+}
