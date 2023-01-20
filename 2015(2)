@@ -31,7 +31,106 @@ int NewNumber(num) {
 	sum = sum + NewNumber(num / 10);
 	return sum;
 }
+//////////////////////////////////////////////////////EX2
 
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#include<assert.h>
+
+#define N 4
+void merge_sort(int*, int, int);
+int MinSum(int* a, int size);
+void merge(int* a, int p, int q, int r);
+
+
+int main() {
+	int n = 7;
+	int a[] = { 7, 14, 5, 10, 13, 3, 9 };
+	int answer = MinSum(a, n);
+	printf("%d", answer);
+}
+
+void merge_sort(int* a, int first, int last)
+{
+	int middle;
+	if (first < last)
+	{
+		middle = (first + last) / 2;
+		merge_sort(a, first, middle);
+		merge_sort(a, middle + 1, last);
+		merge(a, first, middle, last);
+		{
+		}
+	}
+}
+void merge(int* a, int p, int q, int r)
+{
+	int i = p, j = q + 1, k = 0;
+	int* temp = (int*)malloc((r - p + 1) * sizeof(int));
+
+	assert(temp);
+	while ((i <= q) && (j <= r))
+		if (a[i] < a[j])
+			temp[k++] = a[i++];
+		else
+			temp[k++] = a[j++];
+	while (j <= r) // if( i>q )
+		temp[k++] = a[j++];
+	while (i <= q) // j>r
+		temp[k++] = a[i++];
+	for (i = p, k = 0; i <= r; i++, k++) // copy temp[] to a[]
+		a[i] = temp[k];
+	free(temp);
+}
+
+int MinSum(int* a, int size) {
+	int sum, i ;
+	merge_sort(a, 0, size - 1);
+	for (i = 1; i < size - 1; i++) {
+		if (a[i + 1] = a[i] + 1) {
+			sum = a[i + 1] + a[i];
+		}
+	}
+	return sum;
+}
+///////////////////////////////////////////////////////Ex3
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#include<assert.h>
+
+#define N 4
+int MinSum(int* a, int size);
+ 
+int main() {
+	int a=3; int b=7;
+	int n = 15;
+	int arr[] = { 2,0,4,6,6,7,3,1,5,3,-9,1,5,3,-3 };
+	int answer = MinSum(arr,n,a,b);
+	printf("%d", answer);
+}
+
+int MinSum(int* arr, int size, int a, int b ) {
+	int counter=0, i ;
+	int* temp;
+	temp = (int*)calloc(size, sizeof(int));
+	assert(temp);
+	for (i = 0; i < size ; i++) {
+		if (arr[i] >= a && arr[i]<= b){
+			temp[arr[i]]++;
+		}
+		
+	}
+	for (i = 0; i < size; i++) {
+		if (temp[i] > 0) {
+			counter++;
+		}
+	}
+	free(temp);
+	return counter;
+
+}
 ///////////////////////////////////////////////////////Ex4
 #include<stdio.h>
 #include<string.h>
