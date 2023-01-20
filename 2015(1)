@@ -21,7 +21,77 @@ int NewNumber(num) {
 	return 100* NewNumber(num / 100) + NewNumber (num%100);
 
 }
+//////////////////////////////////////////////////EX2
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#include<assert.h>
+
+#define N 4
+void merge_sort(int*, int, int);
+int Distance(int* a, int size);
+void merge(int* a,int p, int q, int r);
+
+
+int main() {
+	int n = 7; 
+	int a[] = { 1,9,3,5,48,14,25 };
+	int answer = Distance(a,n);
+	printf("%d", answer);
+}
+
+void merge_sort(int* a, int first, int last)
+{
+	int middle;
+	if (first < last)
+	{
+		middle = (first + last) / 2;
+		merge_sort(a, first, middle);
+		merge_sort(a, middle + 1, last);
+		merge(a, first, middle, last);
+		{
+		}
+
+	}
+}
+
+void merge(int* a, int p, int q, int r)
+{
+	int i = p, j = q + 1, k = 0;
+	int* temp = (int*)malloc((r - p + 1) * sizeof(int));
+
+	assert(temp);
+	while ((i <= q) && (j <= r))
+		if (a[i] < a[j])
+			temp[k++] = a[i++];
+		else
+			temp[k++] = a[j++];
+	while (j <= r) // if( i>q )
+		temp[k++] = a[j++];
+	while (i <= q) // j>r
+		temp[k++] = a[i++];
+	for (i = p, k = 0; i <= r; i++, k++) // copy temp[] to a[]
+		a[i] = temp[k];
+	free(temp);
+}
+
+
+
+int Distance(int* a, int size) {
+	int dist,temp;
+	int i;
+	merge_sort(a,0,size-1);
+	dist = a[1] - a[0];
+	for (i = 1; i < size - 1; i++) {
+		temp = a[i + 1] - a[i];
+		if (temp < dist) {
+			dist = temp;
+		}
+	}
+	return dist; 
 	
+}
+
 ////////////////////////EX3
 #include<stdio.h>
 #include<string.h>
