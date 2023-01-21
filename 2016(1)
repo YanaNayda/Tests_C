@@ -108,3 +108,70 @@ int sumLetter(char* s, char* s1, char* s2){
 	}
 	return 1;
 }
+///////////////////////////////////////////////////////////////////EX4(1)
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#include<assert.h>
+
+#define N 4
+int Diff(int * arr,int n, int d);
+ 
+int main() {
+	int arr[7] = {2,4,7,12,20,31,46};
+	int n=7;
+	int d = 8; 
+	int answer = Diff(arr,n,d);
+	printf("%d", answer);
+}
+
+int Diff( int *arr ,int size, int d ){
+	
+	int diff = 0; 
+	int i;
+    for (i = 0; i < size-1; i++){
+		if (arr[i + 1] - arr[i] == d) {
+			return i;
+			}
+	}
+	return -1;
+}
+/////////////////////////////////////////////////////////////Ex4(2)
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#include<assert.h>
+
+#define N 4
+int Diff(int * arr,int n, int d);
+ 
+int main() {
+	int arr[7] = {2,4,7,12,20,31,46};
+	int n=7;
+	int d = 8; 
+	int answer = Diff(arr,n,d);
+	printf("%d", answer);
+}
+
+int Diff( int *arr ,int size, int d ){
+	int low=0;
+	int hight=size-1;
+	int i;
+    for (i = 0; i < size-1; i++){
+		arr[i] = arr[i + 1] - arr[i];
+	}
+	for (i = 0; low < hight;i++) {
+		int middle = (low + hight) / 2;
+		if (arr[middle] == d) {
+			return middle;
+		}
+		else
+			if (d > arr[middle]) {
+				low = middle + 1;
+			}
+			else
+				hight = middle - 1;
+	}
+	return - 1;
+	
+}
