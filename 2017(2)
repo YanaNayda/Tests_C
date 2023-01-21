@@ -1,3 +1,4 @@
+//////////////////////////////////////////////////Ex1
 #include<stdio.h>
 
 int is_even (int num);  // Declare the function
