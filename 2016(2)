@@ -98,3 +98,30 @@ int Key(int* arr, int n, int p) {
 	return NULL;
 	
 }
+////////////////////////////////////////////////////////////////////EX5
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#include<assert.h>
+
+#define N 4
+double Key(double x, double n);
+ 
+int main() {
+	int x = 3; 
+	int n = 1; 
+	double answer = Key(x,n);
+	printf("%d",answer);
+}
+
+
+double Key(double x , double n ) {
+	double sum = 3*x;
+	double temp = x; 
+	int i; 
+	for (i = 1; i <= n; i++) {
+		temp *= x /(2*i*(2*i+1));
+		sum += (2 * i + 3)*temp;
+	}
+	return sum;
+}
