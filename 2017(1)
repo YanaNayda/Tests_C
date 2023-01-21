@@ -31,6 +31,42 @@ int findNum(int num, int big) {
 	}
 	return 0;  // Added return statement
 }
+/////////////////////////////////////////////////////////////////Ex2
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#include<assert.h>
+
+#define N 4
+int missing_num(int* arr, int n);
+ 
+int main() {
+	
+	int n = 7; 
+	int arr[] = {7,4,5,6,1,4,0};
+	int answer = missing_num(arr,n);
+	printf("%d",answer);
+}
+
+
+int missing_num(int* arr,int  n ) {
+	int* temparr = (int*)calloc(n+1,sizeof(int));
+	assert(temparr);
+	int i; 
+	int temp=1 ;
+	for (i = 0; i < n; i++) {
+		temparr[arr[i]]++;
+	}
+
+	for (i = 0; i < n; i++) {
+		if (temparr[i] == 0) {
+			temp = i;
+		}
+
+	}
+	free(temparr);
+	return temp; 
+}
 //////////////////////////////////////////////////////////////////EX3
 #include<stdio.h>
 #include<string.h>
