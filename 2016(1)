@@ -175,3 +175,51 @@ int Diff( int *arr ,int size, int d ){
 	return - 1;
 	
 }
+
+......Ex4(3)
+int DiffSearch(int d,int *a,int n)
+{
+int low,high,mid;
+low=0;
+high=n-2;
+while(low <= high)
+{
+mid=(low+high)/2;
+if(d==a[mid+1]-a[mid])
+return mid;
+else if(d<a[mid+1]-a[mid])
+high=mid-1;
+ else /* d>a[mid+1]-a[mid] */
+low=mid+1;
+}
+return -1;
+}
+/////////////////////////////////////////////////////////////////////EX5(don't work?)
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#include<assert.h>
+
+#define N 4
+double Sum(double x, int n);
+ 
+int main() {
+	int x = 3; 
+	int n = 4; 
+	double answer = Sum( x, n );
+	printf("%d", answer);
+}
+
+double Sum(int x, int n) {
+	double temp = x;
+	double sum = x;
+	int i; 
+	for (i = 1; i <= n; i++) {
+		temp *= x * x / i;
+		sum += temp / (2 * i + 1);
+	}
+	return sum;
+}
+
+
+
