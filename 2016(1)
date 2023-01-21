@@ -29,6 +29,37 @@ int findNum(int num) {
 
 	return answer;
 }
+////////////////////////////////////////////////////EX2
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#include<assert.h>
+
+#define N 4
+int MinSum( int n);
+ 
+int main() {
+	
+	int n=6;
+	int answer = MinSum(n);
+	printf("%d", answer);
+}
+
+int MinSum( int n ){
+	int counter=0; 
+	int sum = 0; 
+	int i,x; 
+
+		for (i = 0; i < n; i++){
+			scanf_s("%d",&x);
+			if (sum == x) {
+				counter++;
+			}
+			sum += x;
+		}
+
+		return counter;
+}
 ////////////////////////////////////////////////////EX3
 
 
