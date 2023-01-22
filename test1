@@ -1,0 +1,39 @@
+/////////////////////////////////////////Ex1
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#include<assert.h>
+
+#define N 4
+int missing_num(int n);
+ 
+int main() {
+	
+	int n = 23; 
+	int answer = missing_num(n);
+	printf("%d",answer);
+}
+int missing_num(int n) {
+	int i; 
+	int day1=0; 
+	int day2; 
+	int counter = 0; 
+	int answer=0; 
+
+	for (i = 0; i < n; i++) {
+		scanf_s("%d",&day2);
+		if (day1!= 0 && day2 != 0  ) {
+			counter++;
+		}
+		if (day2 == 0 && counter>0) {
+			answer++;
+			counter = 0;
+
+		}
+		
+		day1 = day2;
+		
+	}
+
+	return answer;
+}
