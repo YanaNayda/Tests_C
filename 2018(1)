@@ -1,3 +1,4 @@
+////////////////////////////////////Ex1
 # preparation
 #include<stdio.h>
 int findNum(int num);  // Declare the function
