@@ -41,8 +41,23 @@ int is_even(int num) {
 	else
 		return 1;
 }
-
-
+............................................................Ex3
+int limit_and _sort (int  *a,int n, int m, int *p){
+       int count=0; int num=0; int i ; 
+       int * temp = calloc(m,sizeof(int));
+       for(i=0; i<n; i++){
+           if (a[i]<=m){
+	         temp[a[i]-1]++;
+		 }
+		}
+	for (i=0;i,m;i++){
+	    if (temp[i]>0){
+	         p[num]=i+1;
+		 counter++;
+		 num++;
+		 }
+		}
+	return counter;	
 //////////////////////////////////////////////////////////EX4
 
 #include<stdio.h>
