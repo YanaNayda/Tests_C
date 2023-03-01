@@ -1,0 +1,90 @@
+#include <stdio.h>
+#include<stdlib.h>
+
+#define N 10
+
+void printArray(int *arr, int n);
+int* evenOdd(int* arr, int n, int** podd, int* sizeEven, int* sizeOdd);
+
+
+int main() {
+	int sizeEven, sizeOdd;
+	int* even = NULL, *odd = NULL;
+	int arr[N] = {1,2,3,4,5,6,7,8,9,10};
+
+	even = evenOdd(arr, N, &odd, &sizeEven, &sizeOdd);
+
+
+	printArray(even,sizeEven);
+	printArray(odd,sizeOdd);
+
+	free(even);
+	even = NULL;
+	free(odd);
+	odd = NULL;
+
+
+}
+
+
+ void printArray (int* arr, int n) {
+	int i;
+	for(i=0; i < n; i++) {
+		printf("%d,", arr[i]);
+		
+	}
+	printf("n");
+}
+
+
+int* evenOdd(int* arr, int n, int** podd, int* sizeEven, int* sizeOdd) {
+	int i; 
+	int* even = NULL;
+	*sizeEven = 0; *sizeOdd = 0;
+
+
+	for(int i = 0; i < n; i++) {
+		if (arr[i] % 2 == 0) {
+			(*sizeEven)++;
+
+		}
+		else {
+			(*sizeOdd)++;
+			
+
+		}
+
+	}
+
+	even = (int*)malloc(sizeof(int) * (*sizeEven));
+	if (even == NULL) {
+		return NULL;
+	}
+
+	*podd = (int*)malloc(sizeof(int) * (*sizeOdd));
+	if (*podd == NULL) {
+		free(even);
+		return NULL;
+	}
+
+	*sizeEven = 0;
+	*sizeOdd = 0; 
+
+	for (int i = 0; i < n; i++) {
+		if (arr[i] % 2 == 0) {
+			even [(*sizeEven)++] = arr[i];
+
+		}
+		else {
+			
+			(*podd)[(*sizeOdd)++] = arr[i];
+
+		}
+
+	}
+	return even;
+
+	 
+
+		
+ }
